@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="./model-viewer.min.js" defer></script>
+<script type="module">
+  const modelViewer = document.querySelector("model-viewer")
+
+  // the scope of any functions or variables declared in a module script is local to the module itself.
+  // exposing this function by attaching it to the global window object
+  window.switchSrc = (model) => {
+    const base = model;
+    modelViewer.src = './shop_model/' + base + '.glb';
+    modelViewer.poster = base + '.webp';
+  };
+</script>
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Document</title>
+  <style>
+    :not(:defined)>* {
+      display: none;
+    }
+
+    html,
+    body,
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+
+  </style>
+</head>
+
+<body>
+<model-viewer src="./shop_model/Chair.glb" poster="./shop_model/Chair.webp" tone-mapping="commerce" disable-tap shadow-intensity="1"
+    camera-controls touch-action="none" alt="A 3D model carousel">
+  </model-viewer>
+
+
+</body>
+
+</html>
+
